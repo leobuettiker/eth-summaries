@@ -217,14 +217,23 @@ Es gelte: $\int f(x) \, dx = F(x)$
 \begin{itemize}[leftmargin=*]
 	\item $e^x = \sum_{n=0}^\infty \frac{x^n}{n!} = 1 + \frac{x}{1!} +
 	\frac{x^2}{2!} + \cdots$
+	\item $\ln(1 + x) = \sum_{n=1}^\infty  (-1)^{(n+1)} \frac{x^n}{n} $
+	\item $-\ln(1 - x) = \sum_{n=1}^\infty  \frac{x^n}{n} $
+	\item $\ln x = \sum_{n=0}^\infty \frac{2}{2n + 1} \cdot \left(
+	\frac{x-1}{x+1} \right)^{2n}$
+
+	\item $\frac{1}{1-x} = \sum_{n=0}^\infty x^{n}$ für $|x|<1$ (Geom. Reihe)
+	\item $\frac{1}{(1-x)^2} = \sum_{n=0}^\infty nx^{(n-1)}$
+
 	\item $\sin x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n + 1}}{(2n + 1)!} = x -
 	\frac{x^3}{3!} + \frac{x^2}{5!} + \cdots$
 	\item $\cos x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!} = 1 -
 	\frac{x^2}{2!} + \frac{x^4}{4!} - \cdots + \cdots$
 	\item $\sinh x = \sum_{n=0}^\infty \frac{x^{2n+1}}{(2n + 1)!}$
 	\item $\cosh x = \sum_{n=0}^\infty \frac{x^{2n}}{(2n)!}$
-	\item $\ln x = \sum_{n=0}^\infty \frac{2}{2n + 1} \cdot \left(
-	\frac{x-1}{x+1} \right)^{2n}$
+	\item $\arcsin x =  \sum_{k=0}^{\infty} \binom{2k}{k} \frac{x^{2k+1}}{4^{k}(2k+1)}$
+	\item $\arccos x = \frac{\pi}{2} - \arcsin x$
+	\item $\arctan x = \sum_{n=0}^\infty (-1)^n \frac{x^{(2n+1)}}{2n+1}$ für $|x|<1$
 \end{itemize}
 
 \subsection{Grenzwerte}
