@@ -11,48 +11,25 @@ Grundlägende Struktur um die Aussage $A(n)$ zu beweisen:
 	die Aussage $A(n+1)$ bewiesen. Dazu wird die Induktionsannahme verwendet.
 \end{enumerate}
 
-\subsection{Beispiel 1}
-Es ist zu beweisen, dass für jedes $n \in \N$ folgendes gilt: $1 + 2 + 3 + \ldots + n = \frac{n(n + 1)}{2}$
-\begin{enumerate}
-	\item \textbf{Verankerung:} Für $n = 1$ gilt $1 = \frac{1 (1 + 1)}{2} = \frac{2}{2} = 1 \quad \checkmark$ 
-	\item \textbf{Annahme:} $1 + 2 + 3 + \ldots + n = \frac{n(n+1)}{2}, \; \forall n \in \N$
-	\item \textbf{Induktionsschritt:}
-	\begin{align*}
-	1 + 2 + \ldots + n + (n+1) \overset{\text{Annahme}}{=} & \frac{n(n+1)}{2} + (n + 1)\\
-	&= \frac{n(n+1)}{2} + \frac{2n + 2}{2} \\
-	&= \frac{n^2 + n + 2n + 2}{2} \\
-	&= \frac{(n + 1)(n + 2)}{2} _\square
-	\end{align*}
-\end{enumerate}
-
-
-\subsection{Beispiel 2}
-		Beispiel: Summe der natürlichen Zahlen
-		\begin{alignat}{1}
-		 sum(0) & = 0\\
-		 sum (n+1) & = sum(n) + (n + 1) 
-		\end{alignat}		
+\subsection{Beispiel}
+		Es ist zu beweisen, dass für jedes $n \in \N$ folgendes gilt: $1 + 2 + 3 + \ldots + n = \frac{n(n + 1)}{2}$		
 		
-		Lemma: $\forall \in \N. sum(n) = n*(n+1)/2$ \\
-		Beweis: \\
-		  Sei $P(n) \equiv sum(n) = n*(n+1)/2$. \\
+		Lemma: $\forall \in \N. 1 + 2 + 3 + \ldots + n = \frac{n(n + 1)}{2}$ \\
+		
+	Beweis: \\
+		  Sei $P(n) \equiv 1 + 2 + 3 + \ldots + n = \frac{n(n + 1)}{2}$. \\
 		  Wir zeigen $\forall \in \N. P(n)$ mit vollständiger Induktion.\\
 		
-		  Induktionsanfang: Zeige $P(0)$. \\
-		\begin{align}
-		        sum(0) &= &\\
-		     &= 0          & \text{ - (1)} \\
-		     & = 0*(0+1)/2  & \text{ – arith}
-		\end{align}
+		Induktionsanfang: Zeige $P(0)$. \\
+		 $$0 =  \frac{0(0 + 1)}{2}$$
 		
 		  Induktionsschritt: \\
 		    Sei $n \in N$ beliebig und nehmen wir $P(n)$ an (Induktionsvoraussetzung).  \\
 		    Zeige $P(n+1)$ (Induktionsbehauptung).\\
 		  \begin{align}
-		        sum (n+1)&=&\\
-		      = sum(n) + (n+1)            & \text{— (2)}\\
-		      = n*(n+1)/2 + (n+1)       & \text{ — P(n) Induktionsvor. }\\
-		      = n*(n+1)/2 + (2*(n+1))/2  & \text{—arith}\\
-		      = (n+1)*((n+1)+1)/2        & \text{—arith}
+		      1 + 2 + 3 + \ldots + n + (n + 1) =\\
+		      = \frac{n(n + 1)}{2} + (n+1)       & \text{ — P(n) Induktionsvor. }\\
+		      = \frac{n(n + 1)}{2} + \frac{2(n + 1)}{2}  & \text{—arith}\\
+		      = \frac{(n+1)*((n+1)+1)}{2}        & \text{—arith}
 		\end{align}
 		qed.
