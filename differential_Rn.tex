@@ -35,3 +35,100 @@ behandelt und die Rechenregeln für Funktionen mit einer Variable anwendet.
 Ist $f$ nach $x$ und $y$ zweimal partiell differenzierbar und sind die gemischten
 partiellen Ableitungen $f_{xy}$ und $f_{yx}$ stetig, so gilt: $f_{xy} = f_{yx}$.
 \end{satz}
+
+\subsection{Hesse-Matrix}
+%Meiste Formeln kopiert von http://de.wikipedia.org/wiki/Hesse-Matrix
+Die Hesse-Matrix ist eine Matrix, die in der mehrdimensionalen reellen Analysis ein Analogon zur zweiten Ableitung einer Funktion ist. Ist die Funktion zweimal stetig differenzierbar kann die Hesse-Matrix gebildet werden. Eine Hesse-Matrix ist symetrisch.
+
+Für eine Funktion $f(x,y)$ sieht die Hesse Matrix wie folgt aus:
+
+$$\operatorname{H}_f=
+\begin{pmatrix}
+\frac{\partial^2 f}{\partial^2 x}&\frac{\partial^2 f}{\partial x\partial y}\\
+\frac{\partial^2 f}{\partial y\partial x}&\frac{\partial^2 f}{\partial^2 y}
+\end{pmatrix}.$$
+
+Verallgemeinert für die Funktion $f \colon D \subset \R^n \to \R$  (die ebenfalls zweimal stetig differenzierbar sein muss), sieht die Matrix wie folgt aus:
+
+\begin{equation}\begin{split}\operatorname{H}(f)=\operatorname{H}_f=
+\left(\frac{\partial^2f}{\partial x_i\partial x_j}\right)_{i,j=1,\dots, n}= \\
+\begin{pmatrix}
+\frac{\partial^2 f}{\partial x_1\partial x_1}&\frac{\partial^2 f}{\partial x_1\partial x_2}&\cdots&\frac{\partial^2  f}{\partial x_1\partial x_n}\\[0.5em]
+\frac{\partial^2 f}{\partial x_2\partial x_1}&\frac{\partial^2 f}{\partial x_2\partial x_2}&\cdots&\frac{\partial^2  f}{\partial x_2\partial x_n}\\
+\vdots&\vdots&\ddots&\vdots\\
+\frac{\partial^2 f}{\partial x_n\partial x_1}&\frac{\partial^2 f}{\partial x_n\partial x_2}&\cdots&\frac{\partial^2  f}{\partial x_n\partial x_n}
+\end{pmatrix}.\end{split}\end{equation}
+
+Anmerkung: Die Determinate einer Matrix ist: 
+$$\det A=\det
+  \begin{pmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22} 
+  \end{pmatrix} 
+= a_{11} a_{22} - a_{12} a_{21}.$$
+
+\begin{equation}\begin{split}
+\det A = \det
+  \begin{pmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33} 
+  \end{pmatrix}
+\\= a_{11} a_{22} a_{33} +a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} 
+\\ - a_{13} a_{22} a_{31} - a_{12} a_{21} a_{33} - a_{11} a_{23} a_{32}.
+\end{split}\end{equation}
+
+\subsection{Kritische Punkte}
+Berechnen von lokalen Minima und Maxima. (Achtung: Rand seperat betrachten!)
+
+%tikz graph inspiered by http://slopjong.de/2010/04/10/urinal-manual/
+%content inspired by jörn http://www.youtube.com/watch?v=fdDuptml-2E
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+text width=4cm, text centered, rounded corners, minimum height=4em, minimum width=4.5cm]
+
+\tikzstyle{line} = [draw, -latex']
+
+%from http://tex.stackexchange.com/questions/60585/how-to-highlight-a-single-element-in-a-matrix
+\newcommand\hlight[1]{\tikz[overlay, remember picture,baseline=-\the\dimexpr\fontdimen22\textfont2\relax]\node[rectangle,fill=yellow!50,rounded corners,fill opacity = 0.2,draw,thick,text opacity =1] {$#1$};} 
+
+
+\begin{tikzpicture}[node distance = 3cm, auto]
+% The nodes  
+\node[block] (grad) {Grad(f) = 0 ergibt kritische Punkte ($\nabla f = \vec{0}$)};    
+\node[block, below of=grad] (matrix) {Hesse-Matrix $\operatorname{H}_f$ berechnen};    
+\node[block, below of=matrix] (det) {Determinante Berechnen $a_{11} a_{22} - a_{12} a_{21}$};    
+\node [decision, below of=det, text width=2cm] (detS) {$det < 0$?};
+\node [decision, below of=detS, text width=2cm] (detB) {$det > 0$?};
+\node [decision, below of=detB, text width=2cm] (definit) {$a_{11} > 0$?};
+
+\node[block, right of=detS, node distance=5cm] (sattel) {Sattelpunkt};
+\node[block, right of=detB, node distance=5cm] (unb) {Unbestimmt};
+\node[block, right of=definit, node distance=5cm] (max) {Lokales Maximum};
+\node[block, below of=definit] (min) {Lokales Minimum};
+
+\node[rectangle, right of=matrix , node distance=5cm] (hf) {$\operatorname{H}_f=
+\begin{pmatrix}
+\hlight{\frac{\partial^2 f}{\partial^2 x}}&\frac{\partial^2 f}{\partial x\partial y}\\
+\\
+\frac{\partial^2 f}{\partial y\partial x}&\frac{\partial^2 f}{\partial^2 y}
+\end{pmatrix}$};
+
+
+% The connections
+\path [line] (grad) -- node [near start] {$(x_0,y_0)$} (matrix);
+
+\path [line] (matrix) -- node [near start] {$\operatorname{H}_f$} (det);
+\path [line] (det) -- node [near start] {$det$} (detS);
+\path [line] (detS) -- node [near start] {Nein} (sattel);
+\path [line] (detS) -- node [near start] {Ja} (detB);
+
+\path [line] (detB) -- node [near start] {Nein} (unb);
+\path [line] (detB) -- node [near start] {Ja} (definit);
+
+\path [line] (definit) -- node [near start] {Ja} (max);
+\path [line] (definit) -- node [near start] {Nein} (min);
+\end{tikzpicture}
+
