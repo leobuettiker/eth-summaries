@@ -62,18 +62,12 @@ Somit:  $y' = f(x) \cdot y + g(x)$ mit $g(x) := 2x^2$ und $f(x) :=  - x^2$\\
 Es gilt somit:\[
 F(x) = \int f(t) dt. =  \int - x^2 dt. = -\frac{x^3}{3}
 \]
-Dann ist \[
-\{y_{Hom}(x) = c_1e^{-\frac{x^3}{3}}| c_1 \in \R\}
-\] die Menge aller Lösungen der homogenen Differnentialgleichung ($y' + x^2\cdot y = 0$). \\
+Dann ist $\{y_{Hom}(x) = c_1e^{-\frac{x^3}{3}}| c_1 \in \R\}$ die Menge aller Lösungen der homogenen Differnentialgleichung ($y' + x^2\cdot y = 0$). \\
 
 Nun berechnen wir\[
 u(x) = \int  g(x)e^{-F(x)} dx. =  2 \int  x^2e^{\frac{x^3}{3}} dx. = 2e^{\frac{x^3}{3}}
 \]
-Somit ist die Lösungsmenge von $y_p$
-\[
-\{ y_p'(x) = e^{-\frac{x^3}{3}} (2e^{\frac{x^3}{3}} + c_2) | c_2 \in \R \}
-= \{ y_p'(x) =2 + c_3) | c_3 \in \R \}
-\]
+Somit ist die Lösungsmenge von $y_p$ $\{ y_p'(x) = e^{-\frac{x^3}{3}} (2e^{\frac{x^3}{3}} + c_2) | c_2 \in \R \} = \{ y_p'(x) =2 + c_3) | c_3 \in \R \}$
 Die Lösungsmenge der generellen Lösung der allgemeinen Lösung ist somit $y$\[
 \{ y(x) =  c_1e^{-\frac{x^3}{3}} +  2  | c_1 \in \R \}
 \]
@@ -139,6 +133,8 @@ Eulersche Identität zu verwenden: $e^{i \cdot x} = \cos(x) + i \sin(x)$.
 Die allgemeine Lösung der homogenen DGL haben wir nun gefunden. Die Unbekannten $C_i$
 können gefunden werden, wenn genügend Punkte gegeben sind, an denen der Funktionswert bekannt ist.
 
+\subsubsection*{Lineare DGL höherer Ordnung, inhomogen}
+
 Hat man ursprünglich eine inhomogene DGL vorliegen, so muss man für die allgemeine Lösung
 noch die partikuläre Lösung des inhomogenen DGL berechnen. Dazu werden die Unbekannten
 $C_i$ durch Funktionen $u_i(x)$ ersetzt. So wird aus
@@ -179,6 +175,11 @@ Nun kann die allgemeine Lösung des inhomogenen DGL berechnet werden. Dazu
 summiert man $y_h$ und $y_p$: $y = y_h + y_p$. Dies ist die allgemeine Lösung.
 Hat man konkrete Punkte, an denen die Funktion ausgewertet wurde, so kann man
 die Unbekannten $C_i$ berechnen.
+
+\subsubsection{Euler}
+
+$$ \underbrace{C_1 \cdot e^{(a+bi)x} + C_2 \cdot e^{(a-bi)x}}_{D_1 \cdot e^{ax}\sin(bx) + D_2 \cdot e^{ax}\cos(bx)}$$
+
 
 \subsubsection{Beispiel}
 Es soll $y'' + y = \frac{2}{\cos(x)}$ ausgerechnet werden.
