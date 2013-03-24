@@ -1,4 +1,5 @@
 *.pdf
+!Zusammenfassung.pdf
 *~
 *.aux
 *.log
