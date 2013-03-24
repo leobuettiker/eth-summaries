@@ -1,6 +1,8 @@
 Analysis 1&2 Zusammenfassung
 =============
 
+Die Zusammenfassung kann man hier herunterlanden: https://github.com/leobuettiker/eth-summaries/blob/master/Zusammenfassung.pdf?raw=true
+
 #Inhalt
 
 Diese Zusammenfassung wurde für die Repetitionsprüfung HS12 D-INFK Analysis 1&2 Prüfung an der ETH Zürich verfasst. 
